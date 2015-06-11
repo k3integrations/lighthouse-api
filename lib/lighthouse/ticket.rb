@@ -27,6 +27,7 @@ module Lighthouse
     
     attr_writer :tags
     site_format << '/projects/:project_id'
+    self.format = Lighthouse::Formats::TicketXml
 
     def id
       attributes['number'] ||= nil

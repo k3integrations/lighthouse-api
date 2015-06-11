@@ -18,15 +18,23 @@ RSpec.describe Lighthouse::Ticket do
   }
 
   before do
-    stub_request(:get, "http://test.lighthouseapp.com/projects/1/tickets.xml").
+    stub_request(:get, 'http://test.lighthouseapp.com/projects/1/tickets.xml').
       to_return(status: 200, body: xml, headers: {})
   end
 
   context 'all' do
-    it 'will return two tickets' do
-      tickets = Lighthouse::Ticket.all(params: {project_id: 1})
+    let(:tickets) { Lighthouse::Ticket.all(params: { project_id: 1 }) }
 
+    it 'will return two tickets' do
       expect(tickets.count).to eq 2
+    end
+
+    it 'will return ticket objects' do
+      ticket = tickets.first
+
+      expect(ticket.state).to eq 'hold'
+      expect(ticket.tag).to eq 'bug'
+      expect(ticket.title).to eq 'title'
     end
   end
 end
