@@ -15,8 +15,11 @@ Gem::Specification.new do |s|
   s.rubygems_version = '1.2.0'
   s.summary = %q{Ruby API wrapper for Lighthouse - http://lighthouseapp.com}
   s.description = %q{Ruby API wrapper for Lighthouse - http://lighthouseapp.com}
-  s.test_files = []
+  s.test_files = s.files.grep(%r{^(test|spec|features)/})
 
   s.add_dependency(%q<activesupport>, [">= 3.0.0"])
   s.add_dependency(%q<activeresource>, [">= 3.0.0"])
+
+  s.add_development_dependency 'rspec', '~> 3.2.0'
+  s.add_development_dependency 'webmock', '~> 1.21.0'
 end
