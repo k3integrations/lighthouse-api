@@ -65,7 +65,8 @@ module Lighthouse
       save_without_tags
     end
     
-    alias_method_chain :save, :tags
+    alias_method :save_without_tags, :save
+    alias_method :save, :save_with_tags
 
     private
       # taken from Lighthouse Tag code
