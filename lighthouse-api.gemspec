@@ -7,7 +7,6 @@ Gem::Specification.new do |s|
   s.email = ["justin@entp.com"]
   s.extra_rdoc_files = ["LICENSE"]
   s.files = Dir.glob("lib/**/*") + %w(LICENSE README.md)
-  s.has_rdoc = true
   s.homepage = 'http://lighthouseapp.com/api'
   s.rdoc_options = ["--main", "README.md"]
   s.require_paths = ["lib"]
